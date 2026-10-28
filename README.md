@@ -1323,11 +1323,12 @@ All settings are job options, so they can be given with `-o` on the
 command line or as IPP job attributes:
 
 - `ocr-language=<lang>`: Tesseract language(s), for example `eng`,
-  `deu`, or `eng+deu`. Default `eng`. With Ghostscript 10.02 a
-  combination of languages does not always give the expected result,
-  so give the main language of the document.
-- `ocr-engine=0|1|2`: Tesseract engine, 0 = LSTM, 1 = legacy, 2 = both.
-  Default is Ghostscript's default (LSTM).
+  `deu`, or `eng+deu`. Default `eng`. With the "fast" language packs
+  of the distributions a combination tends to favor the first
+  language, so give the main language of the document.
+- `ocr-engine=0|1|2|3`: Tesseract engine, 0 = Tesseract's default,
+  1 = LSTM only, 2 = legacy only (needs legacy language data), 3 = both.
+  Default 0.
 - `ocr-fallback=true|false`: If OCR is not possible (Ghostscript
   without Tesseract, language data missing) or fails, output a
   raster-only PDF without text layer instead of failing the job.
